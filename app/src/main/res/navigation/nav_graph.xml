@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="hu.bme.aut.android.trackio.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="hu.bme.aut.android.trackio.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addChallengeFragment"
+            app:destination="@id/addChallengeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_currentChallengesFragment"
+            app:destination="@id/currentChallengesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addChallengeFragment"
+        android:name="hu.bme.aut.android.trackio.ui.AddChallengeFragment"
+        android:label="fragment_add_challenge"
+        tools:layout="@layout/fragment_add_challenge" >
+        <action
+            android:id="@+id/action_addChallengeFragment_to_datePickerDialogFragment"
+            app:destination="@id/datePickerDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currentChallengesFragment"
+        android:name="hu.bme.aut.android.trackio.ui.CurrentChallengesFragment"
+        android:label="fragment_current_challenges"
+        tools:layout="@layout/fragment_current_challenges" >
+        <action
+            android:id="@+id/action_currentChallengesFragment_to_addChallengeFragment"
+            app:destination="@id/addChallengeFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerDialogFragment"
+        android:name="hu.bme.aut.android.trackio.ui.DatePickerDialogFragment"
+        android:label="DatePickerDialogFragment" >
+        <action
+            android:id="@+id/action_datePickerDialogFragment_to_addChallengeFragment"
+            app:destination="@id/addChallengeFragment" />
+    </dialog>
+</navigation>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_blank.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_daily_activities.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_detailed_measurements.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_during_workout.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_help.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_home_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_measurements_dialog.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_past_workout.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_personal_dialog.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_profile_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_signup.xml" value="0.2" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_workout_history.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_workout_map.xml" value="0.27447916666666666" />
+        <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_workout_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable-v24/blue_background.xml" value="0.253" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable-v24/white_background.xml" value="0.2595" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable/addnewchallangebackground.xml" value="0.1115" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable/gradient_background.xml" value="0.1775" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable/gradientbackground.xml" value="0.123" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/dropdown_item.xml" value="0.253125" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_add_challenge.xml" value="0.264" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_current_challenges.xml" value="0.2246376811594203" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_date_picker_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
