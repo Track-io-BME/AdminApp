@@ -28,7 +28,8 @@
         android:layout_marginTop="280dp"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:text="Email address"
+        android:hint="Email address"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -40,9 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:inputType="textPassword"
-
         android:minHeight="48dp"
-        android:text="Password"
+        android:hint="Password"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailedittext" />

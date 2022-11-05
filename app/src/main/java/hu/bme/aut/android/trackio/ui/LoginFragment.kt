@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.trackio.R
 import hu.bme.aut.android.trackio.databinding.FragmentLoginBinding
@@ -24,8 +26,15 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(this)[LoginFragmentViewModel::class.java]
+
         binding.btnLoginToHome.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            if(viewModel.loginUser(binding.emailedittext.text.toString(),binding.passwordtext.text.toString())){
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+            else{
+                Toast.makeText(context,"Wrong password or email",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

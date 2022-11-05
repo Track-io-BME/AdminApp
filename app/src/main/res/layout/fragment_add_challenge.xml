@@ -15,7 +15,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="70dp"
         android:minHeight="48dp"
-        android:text="Adding new challange"
+        android:text="Adding new challenge"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,20 +36,20 @@
         style="@style/shortText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="Distance (in km)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/editTextDistance"
         style="@style/inputForm"
         android:layout_width="320dp"
         android:layout_height="32dp"
         android:layout_marginTop="10dp"
-        android:inputType="number"
-        android:textSize="20sp"
+        android:inputType="numberDecimal|numberSigned"
+        android:textSize="@dimen/font_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -60,20 +60,20 @@
         style="@style/shortText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:text="Duration (in days)"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDistance" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/editTextDuration"
         style="@style/inputForm"
         android:layout_width="320dp"
         android:layout_height="32dp"
         android:layout_marginTop="10dp"
         android:inputType="number"
-        android:textSize="20sp"
+        android:textSize="@dimen/font_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -83,64 +83,87 @@
         style="@style/shortText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+
         android:text="Type"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDuration" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+    <Spinner
+        android:id="@+id/spCategory"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-
-        android:hint="Sport"
+        style="@style/white_style"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:inputType="none"
-            android:paddingTop="20dp"
-            android:paddingBottom="14dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+        style="@style/shortText"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/white_background"
         android:text="Start date"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/spCategory" />
 
     <Button
-        android:id="@+id/dateInput"
-        android:layout_width="140dp"
+        android:id="@+id/dateStartInput"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:backgroundTint="@color/white"
-        android:text="Button"
+        android:hint="Add date"
+        android:text=""
         android:textColor="@color/black"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/shortText"
+        android:layout_height="wrap_content"
+        android:text="End date"
+        android:layout_width="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateStartInput" />
+
+    <Button
+        android:id="@+id/dateEnd"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:hint="End date"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Add"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

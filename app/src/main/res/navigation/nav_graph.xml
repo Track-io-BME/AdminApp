@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="hu.bme.aut.android.trackio.ui.LoginFragment"
@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_addChallengeFragment_to_datePickerDialogFragment"
             app:destination="@id/datePickerDialogFragment" />
+        <action
+            android:id="@+id/action_addChallengeFragment_to_currentChallengesFragment"
+            app:destination="@id/currentChallengesFragment" />
     </fragment>
     <fragment
         android:id="@+id/currentChallengesFragment"

@@ -32,8 +32,8 @@ class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetLis
 
     data class DatePickerResult(
         val year: Int,
-        val month: Int,
-        val dayOfMonth: Int,
+        var month: Int,
+        val day: Int,
     ) : Serializable
 
 
