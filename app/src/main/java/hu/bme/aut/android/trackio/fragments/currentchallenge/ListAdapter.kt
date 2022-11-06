@@ -1,32 +1,28 @@
-package hu.bme.aut.android.trackio.list
+package hu.bme.aut.android.trackio.fragments.currentchallenge
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
-import androidx.core.view.allViews
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.trackio.R
-import hu.bme.aut.android.trackio.data.Challenge
+import hu.bme.aut.android.trackio.model.Challenge
 import hu.bme.aut.android.trackio.databinding.ChallangeRowitemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-//private val listeners: ChallengeItemClickListener
-class ListAdapter():
+class ListAdapter(private val listeners: ChallengeItemClickListener):
     RecyclerView.Adapter<ListAdapter.ChallengeViewHolder>() {
 
-    private var challengeList = emptyList<Challenge>()
+    private var challengeList = mutableListOf<Challenge>()
 
     inner class ChallengeViewHolder(val binding: ChallangeRowitemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    /*
+
     interface ChallengeItemClickListener {
-        fun onItemChanged(item: ChallengeItem)
-        fun onItemRemoved(item: ChallengeItem)
-    }*/
+        fun onItemRemoved(item: Challenge)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ChallengeViewHolder (
@@ -44,7 +40,8 @@ class ListAdapter():
         val daysleft = TimeUnit.MILLISECONDS.toDays(leftInmillies).toString()+" days"
         holder.binding.rowdaysleft.text= daysleft
         holder.binding.removebutton.setOnClickListener{
-
+            deleteData(currentItem)
+            listeners.onItemRemoved(currentItem)
         }
 
     }
@@ -71,8 +68,13 @@ class ListAdapter():
     }
 
     fun setData(challenges: List<Challenge>){
-        this.challengeList=challenges
+        this.challengeList=challenges.toMutableList()
         notifyDataSetChanged()
+    }
 
+    fun deleteData(challenge: Challenge){
+        val index = challengeList.indexOf(challenge)
+        challengeList.removeAt(index)
+        notifyItemRemoved(index)
     }
 }

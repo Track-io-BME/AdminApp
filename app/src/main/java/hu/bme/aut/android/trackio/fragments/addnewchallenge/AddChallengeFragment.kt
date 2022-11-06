@@ -1,4 +1,4 @@
-package hu.bme.aut.android.trackio.ui
+package hu.bme.aut.android.trackio.fragments.addnewchallenge
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.trackio.R
-import hu.bme.aut.android.trackio.data.Challenge
-import hu.bme.aut.android.trackio.data.ChallengeViewModel
+import hu.bme.aut.android.trackio.model.Challenge
+import hu.bme.aut.android.trackio.viewmodell.ChallengeViewModel
 import hu.bme.aut.android.trackio.databinding.FragmentAddChallengeBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,7 +40,6 @@ class AddChallengeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var currentDate: String = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         challengeViewModel = ViewModelProvider(this).get(ChallengeViewModel::class.java)
 
 
@@ -48,8 +47,7 @@ class AddChallengeFragment : Fragment() {
             findNavController().navigate(R.id.action_addChallengeFragment_to_datePickerDialogFragment)
 
         }
-        binding.dateStartInput.text = currentDate
-        binding.dateEnd.text = currentDate
+
 
         findNavController()
             .currentBackStackEntry
@@ -57,7 +55,7 @@ class AddChallengeFragment : Fragment() {
             ?.getLiveData<DatePickerDialogFragment.DatePickerResult>(DATE_SELECTED_KEY)
             ?.observe(viewLifecycleOwner) { result ->
                 result.month++
-                currentDate =
+                var currentDate =
                     result.year.toString() + "-" + result.month.toString() + "-" + result.day.toString()
                 val sdf = SimpleDateFormat("yyyy-MM-dd",Locale.getDefault())
                 val date = sdf.parse(currentDate)

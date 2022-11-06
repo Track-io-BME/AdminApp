@@ -1,9 +1,9 @@
-package hu.bme.aut.android.trackio.data
+package hu.bme.aut.android.trackio.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
-import java.time.Duration
+import java.util.*
 
 @Entity(tableName = "challanges_table")
 data class Challenge(

@@ -1,4 +1,4 @@
-package hu.bme.aut.android.trackio.ui
+package hu.bme.aut.android.trackio.viewmodell
 
 import androidx.lifecycle.ViewModel
 

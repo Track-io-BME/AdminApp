@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="24sp">
+    style="@style/blue_style"
+    android:padding="8sp"
+    android:layout_margin="8sp">
 
     <ImageView
         android:id="@+id/sporticon"
@@ -73,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rowdaysleft"
         app:layout_constraintTop_toTopOf="@+id/textView12"
-        app:srcCompat="@drawable/ic_remove" />
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
 
     <TextView
         android:id="@+id/textView14"

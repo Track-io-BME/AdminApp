@@ -1,10 +1,8 @@
-package hu.bme.aut.android.trackio.data
+package hu.bme.aut.android.trackio.model.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import hu.bme.aut.android.trackio.model.Challenge
 
 @Dao
 interface ChallengeDao {
@@ -14,4 +12,7 @@ interface ChallengeDao {
 
     @Query("SELECT * FROM challanges_table ORDER BY id ASC")
     fun readAllDate(): LiveData<List<Challenge>>
+
+    @Delete
+    suspend fun deleteChallenge(challenge: Challenge)
 }

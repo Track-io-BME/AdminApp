@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="hu.bme.aut.android.trackio.ui.LoginFragment"
+        android:name="hu.bme.aut.android.trackio.fragments.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="hu.bme.aut.android.trackio.ui.HomeFragment"
+        android:name="hu.bme.aut.android.trackio.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/addChallengeFragment"
-        android:name="hu.bme.aut.android.trackio.ui.AddChallengeFragment"
+        android:name="hu.bme.aut.android.trackio.fragments.addnewchallenge.AddChallengeFragment"
         android:label="fragment_add_challenge"
         tools:layout="@layout/fragment_add_challenge" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/currentChallengesFragment"
-        android:name="hu.bme.aut.android.trackio.ui.CurrentChallengesFragment"
+        android:name="hu.bme.aut.android.trackio.fragments.currentchallenge.CurrentChallengesFragment"
         android:label="fragment_current_challenges"
         tools:layout="@layout/fragment_current_challenges" >
         <action
@@ -51,7 +51,7 @@
     </fragment>
     <dialog
         android:id="@+id/datePickerDialogFragment"
-        android:name="hu.bme.aut.android.trackio.ui.DatePickerDialogFragment"
+        android:name="hu.bme.aut.android.trackio.fragments.addnewchallenge.DatePickerDialogFragment"
         android:label="DatePickerDialogFragment" >
         <action
             android:id="@+id/action_datePickerDialogFragment_to_addChallengeFragment"

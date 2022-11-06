@@ -1,11 +1,14 @@
-package hu.bme.aut.android.trackio.data
+package hu.bme.aut.android.trackio.model.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import hu.bme.aut.android.trackio.model.Challenge
 
 @Database(entities = [Challenge::class], version = 1, exportSchema = false)
+@TypeConverters(DataConverter::class)
 abstract class ChallengeDatabase: RoomDatabase() {
 
     abstract fun challengeDao(): ChallengeDao

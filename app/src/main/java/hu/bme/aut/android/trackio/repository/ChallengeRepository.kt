@@ -1,6 +1,8 @@
-package hu.bme.aut.android.trackio.data
+package hu.bme.aut.android.trackio.repository
 
 import androidx.lifecycle.LiveData
+import hu.bme.aut.android.trackio.model.data.ChallengeDao
+import hu.bme.aut.android.trackio.model.Challenge
 
 class ChallengeRepository(private val challengeDao : ChallengeDao) {
 
@@ -8,5 +10,9 @@ class ChallengeRepository(private val challengeDao : ChallengeDao) {
 
     suspend fun addChallenge(challenge: Challenge){
         challengeDao.addChallenge(challenge)
+    }
+
+    suspend fun deleteChallenge(challenge: Challenge){
+        challengeDao.deleteChallenge(challenge)
     }
 }

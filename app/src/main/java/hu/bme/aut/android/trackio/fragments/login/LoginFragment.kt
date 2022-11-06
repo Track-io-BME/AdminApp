@@ -1,4 +1,4 @@
-package hu.bme.aut.android.trackio.ui
+package hu.bme.aut.android.trackio.fragments.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.trackio.R
 import hu.bme.aut.android.trackio.databinding.FragmentLoginBinding
+import hu.bme.aut.android.trackio.viewmodell.LoginFragmentViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding : FragmentLoginBinding

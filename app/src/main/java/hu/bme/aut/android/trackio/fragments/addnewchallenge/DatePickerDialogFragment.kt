@@ -1,4 +1,4 @@
-package hu.bme.aut.android.trackio.ui
+package hu.bme.aut.android.trackio.fragments.addnewchallenge
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -7,7 +7,6 @@ import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import java.io.Serializable
-import java.time.LocalDate
 import java.util.*
 
 class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListener{
