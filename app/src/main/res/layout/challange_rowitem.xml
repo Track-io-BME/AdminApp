@@ -75,6 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rowdaysleft"
         app:layout_constraintTop_toTopOf="@+id/textView12"
+        android:background="@android:color/transparent"
+
         app:srcCompat="@drawable/ic_baseline_delete_24" />
 
     <TextView

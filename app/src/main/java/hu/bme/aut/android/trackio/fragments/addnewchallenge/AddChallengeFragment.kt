@@ -40,7 +40,7 @@ class AddChallengeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        challengeViewModel = ViewModelProvider(this).get(ChallengeViewModel::class.java)
+        challengeViewModel = ViewModelProvider(this)[ChallengeViewModel::class.java]
 
 
         binding.dateStartInput.setOnClickListener {
@@ -102,7 +102,7 @@ class AddChallengeFragment : Fragment() {
             duration = binding.editTextDuration.text.toString().toInt(),
             startdate = dateinLong
         )
-        challengeViewModel.addUser(newChallenge)
+        challengeViewModel.addChallenge(newChallenge)
         Toast.makeText(context,"Beadtamtesa",Toast.LENGTH_SHORT).show()
     }
 }

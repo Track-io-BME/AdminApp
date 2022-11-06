@@ -1,6 +1,7 @@
 package hu.bme.aut.android.trackio.fragments.currentchallenge
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,10 +29,19 @@ class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickList
         //RecycleView
         initRecyclerView()
         mChallangeViewModel = ViewModelProvider(this)[ChallengeViewModel::class.java]
+        mChallangeViewModel.responseData.observe(viewLifecycleOwner){
+            if(it.isSuccessful){
+                Log.d("talan", it.body().toString())
+            }
+            else{
+                Log.d("talan", "nemnyert")
+            }
+            // mChallangeViewModel.addChallengesDbToNetwork()
+        }
         mChallangeViewModel.readAllData.observe(viewLifecycleOwner) { challenge ->
             adapter.setData(challenge)
-
         }
+        //mChallangeViewModel.getChallengesFromBackend()
         return binding.root
     }
 
