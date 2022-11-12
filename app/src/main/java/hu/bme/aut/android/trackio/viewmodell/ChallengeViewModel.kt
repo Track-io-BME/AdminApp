@@ -32,31 +32,17 @@ class ChallengeViewModel(application: Application) :AndroidViewModel(application
         }
     }
 
-    fun addChallengesDbToNetwork(){
-        viewModelScope.launch(Dispatchers.IO) {
-            for(item in listresponse){
-                addChallenge(
-                    Challenge(item.id,item.distance,
-                        Challenge.SportType.getByOrdinal(item.category)!!,item.duration,item.startDate)
-                )
-            }
-
-
-        }
-    }
     fun deleteChallenge(challenge: Challenge){
         viewModelScope.launch(Dispatchers.IO){
             repository.deleteChallenge(challenge)
         }
     }
 
-    fun getChallengesFromBackend(){
-        viewModelScope.launch {
-            val response = repository.getChallenges()
-            responseData.value=response
-            // listresponse=response.toList()
 
-        }
+    fun data() = viewModelScope.launch {
+        repository.getDataFromServer()
     }
+
+
 }
 

@@ -87,7 +87,8 @@ class AddChallengeFragment : Fragment() {
             }
             else{
                 insertIntoDatabase()
-                findNavController().navigate(R.id.action_addChallengeFragment_to_currentChallengesFragment)
+                findNavController().popBackStack()
+
             }
         }
 
