@@ -35,8 +35,8 @@ class ListAdapter(private val listeners: ChallengeItemClickListener):
         holder.binding.typeofsport.text=getSportType(currentItem.sportType)
         holder.binding.rowdistance.text= currentItem.distance.toString().plus(" km")
         holder.binding.rowduration.text= currentItem.duration.toString().plus(" days")
-        holder.binding.rowstartdate.text= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(currentItem.startdate)
-        val leftInmillies =Calendar.getInstance().getTime().time-currentItem.startdate;
+        holder.binding.rowstartdate.text= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(currentItem.startDate)
+        val leftInmillies =Calendar.getInstance().getTime().time-currentItem.startDate;
         val daysleft = TimeUnit.MILLISECONDS.toDays(leftInmillies).toString()+" days"
         holder.binding.rowdaysleft.text= daysleft
         holder.binding.removebutton.setOnClickListener{

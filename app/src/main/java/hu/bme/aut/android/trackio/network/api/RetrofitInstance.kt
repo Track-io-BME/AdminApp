@@ -1,9 +1,10 @@
 package hu.bme.aut.android.trackio.network.api
 
+import com.squareup.moshi.Moshi
 import hu.bme.aut.android.trackio.network.utils.Constant.Companion.SERVICE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.security.cert.X509Certificate
 import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
@@ -14,7 +15,7 @@ object RetrofitInstance {
         Retrofit.Builder()
             .baseUrl(SERVICE_URL)
             .client(getUnsafeOkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
 

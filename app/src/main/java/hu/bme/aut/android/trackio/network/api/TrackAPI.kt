@@ -10,7 +10,14 @@ import retrofit2.http.Query
 interface TrackAPI {
 
     @GET("admin/challanges")
+<<<<<<< Updated upstream
     suspend fun getChallenges() : List<ChallengesNetworkData>
+=======
+    fun getChallenges() : Call<List<ChallengesNetworkData?>?>?
+
+    @GET("admin/challange")
+    fun getChallenge() : Call<Challenge?>?
+>>>>>>> Stashed changes
 
 
 }

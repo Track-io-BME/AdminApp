@@ -23,6 +23,7 @@ class ChallengeRepository(private val challengeDao : ChallengeDao) {
         challengeDao.deleteChallenge(challenge)
     }
 
+<<<<<<< Updated upstream
     suspend fun getChallenges() : List<ChallengesNetworkData> {
         return RetrofitInstance.api.getChallenges()
     }
@@ -35,6 +36,23 @@ class ChallengeRepository(private val challengeDao : ChallengeDao) {
                 Challenge.SportType.getByOrdinal(item.category)!!,item.duration,item.startDate)
             )
         }*/
+=======
+    suspend fun deleteAllChallenges(){
+        challengeDao.deleteAllChallenges()
+    }
+
+    suspend fun createChallenge(challenge: Challenge)
+    {
+        addChallenge(challenge)
+    }
+
+    fun getAllChallengesFromServer(): Call<List<ChallengesNetworkData?>?>?  {
+        return RetrofitInstance.api.getChallenges()
+    }
+
+    fun getChallengeFromServer() : Call<Challenge?>? {
+        return RetrofitInstance.api.getChallenge()
+>>>>>>> Stashed changes
     }
 
 

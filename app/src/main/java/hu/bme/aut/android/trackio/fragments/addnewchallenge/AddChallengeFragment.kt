@@ -101,7 +101,7 @@ class AddChallengeFragment : Fragment() {
             distance= binding.editTextDistance.text.toString().toFloat(),
             sportType = Challenge.SportType.getByOrdinal(binding.spCategory.selectedItemPosition)?: Challenge.SportType.WALKING,
             duration = binding.editTextDuration.text.toString().toInt(),
-            startdate = dateinLong
+            startDate = dateinLong
         )
         challengeViewModel.addChallenge(newChallenge)
         Toast.makeText(context,"Beadtamtesa",Toast.LENGTH_SHORT).show()

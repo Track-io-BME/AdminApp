@@ -4,15 +4,22 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import java.util.*
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 @Entity(tableName = "challanges_table")
 data class Challenge(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val distance: Float,
     val sportType : SportType,
+<<<<<<< Updated upstream
     val duration: Int,
     val startdate : Long
+=======
+    val startDate : Long,
+    val duration: Int
+>>>>>>> Stashed changes
 ){
     enum class SportType {
         WALKING, RUNNING, CYCLING;
