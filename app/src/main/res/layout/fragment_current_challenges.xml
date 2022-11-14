@@ -52,8 +52,6 @@
         app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
         app:layout_constraintTop_toTopOf="@+id/floatingActionButton" />
 
-<<<<<<< Updated upstream
-=======
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
@@ -68,6 +66,5 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="704dp" />
 
->>>>>>> Stashed changes
 
 </androidx.constraintlayout.widget.ConstraintLayout>
