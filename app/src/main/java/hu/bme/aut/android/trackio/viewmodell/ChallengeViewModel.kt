@@ -6,8 +6,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import hu.bme.aut.android.trackio.model.Challenge
+import hu.bme.aut.android.trackio.model.SharedPrefConfig
 import hu.bme.aut.android.trackio.model.data.ChallengeDatabase
-import hu.bme.aut.android.trackio.repository.ChallengeRepository
+import hu.bme.aut.android.trackio.repository.ChallengeDbRepository
+import hu.bme.aut.android.trackio.repository.ChallengeNetworkRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -18,29 +20,32 @@ import retrofit2.Response
 class ChallengeViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<Challenge>>
-    private val repository: ChallengeRepository
-
+    private val challengeDbRepository: ChallengeDbRepository
+    private val challengeNetworkRepository: ChallengeNetworkRepository
     init {
         val challengeDao = ChallengeDatabase.getDatabase(application).challengeDao()
-        repository = ChallengeRepository(challengeDao)
-        onedata()
-        readAllData = repository.readAllData
+        challengeDbRepository = ChallengeDbRepository(challengeDao)
+        challengeNetworkRepository = ChallengeNetworkRepository()
+        var token = SharedPrefConfig.getString("pref_token","no token")
+        getChallengesFromServer(token)
+        readAllData = challengeDbRepository.readAllData
     }
 
     fun addChallenge(challenge: Challenge) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addChallenge(challenge)
+            challengeDbRepository.addChallenge(challenge)
         }
     }
 
     fun deleteChallenge(challenge: Challenge) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteChallenge(challenge)
+            challengeDbRepository.deleteChallenge(challenge)
         }
     }
 
 
-    fun onedata() {
+
+   /* fun onedata() {
         repository.getChallengeFromServer()?.enqueue(object : Callback<Challenge?> {
 
             override fun onResponse(
@@ -70,16 +75,21 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
                 throwable.printStackTrace()
             }
         })
-    }
+    }*/
 
-    fun data() {
-        repository.getAllChallengesFromServer()
+
+
+
+
+    fun getChallengesFromServer(string: String) {
+        challengeNetworkRepository.getAllChallengesFromServer(string)
             ?.enqueue(object : Callback<List<Challenge?>?> {
                 override fun onResponse(
                     call: Call<List<Challenge?>?>,
                     response: Response<List<Challenge?>?>
                 ) {
                     Log.d("talan", "onResponse: " + response.code())
+                    Log.d("talan", response.body().toString())
                     if (response.isSuccessful) {
                         val data = response.body()
                         if (data != null) {
@@ -89,7 +99,7 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
                                 }
                             }
                         } else {
-                            Log.d("talan", "kurvaelet")
+                            Log.d("talan", "lol")
                         }
                     }
                 }

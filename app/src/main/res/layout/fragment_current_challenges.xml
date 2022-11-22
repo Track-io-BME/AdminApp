@@ -66,5 +66,4 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="704dp" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

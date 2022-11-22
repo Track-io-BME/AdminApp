@@ -34,6 +34,12 @@ class AddChallengeFragment : Fragment() {
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
             resources.getStringArray(R.array.sports)
         )
+
+        binding.spChallengeDuration.adapter= ArrayAdapter(
+            requireContext(),
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            resources.getStringArray(R.array.challengeDuration)
+        )
         return binding.root
     }
 
@@ -61,15 +67,16 @@ class AddChallengeFragment : Fragment() {
                 val date = sdf.parse(currentDate)
 
                 binding.dateStartInput.text = currentDate
-                var daysInLong = binding.editTextDuration.text.toString().toIntOrNull()
-
-                if(daysInLong==null){
-                    daysInLong=0
+                var challengeDuration = Challenge.SportDuration.getByOrdinal(binding.spChallengeDuration.selectedItemPosition)
+                var durationInLong : Long
+                if(challengeDuration == Challenge.SportDuration.DAILY){
+                    durationInLong = 86400000
                 }
                 else{
-                    daysInLong *= 86400000
+                    durationInLong = 86400000*7
                 }
-                binding.dateEnd.text=SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.time+daysInLong)
+
+                binding.dateEnd.text=SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.time+durationInLong)
             }
 
         binding.addButton.setOnClickListener{
@@ -78,9 +85,6 @@ class AddChallengeFragment : Fragment() {
             }
             else if(binding.editTextDistance.text.isEmpty()){
                 Toast.makeText(context,"Distance field is empty",Toast.LENGTH_SHORT).show()
-            }
-            else if(binding.editTextDuration.text.isBlank()){
-                Toast.makeText(context,"Duration field is empty",Toast.LENGTH_SHORT).show()
             }
             else if(binding.dateEnd.text.equals(binding.dateStartInput.text)){
                 Toast.makeText(context,"Please add a start date",Toast.LENGTH_SHORT).show()
@@ -97,10 +101,10 @@ class AddChallengeFragment : Fragment() {
     private fun insertIntoDatabase(){
         val df = SimpleDateFormat("yyyy-MM-dd")
         val dateinLong = df.parse(binding.dateStartInput.text.toString()).time
-        val newChallenge = Challenge(id=0,
+        val newChallenge = Challenge(id=111,
             distance= binding.editTextDistance.text.toString().toFloat(),
             sportType = Challenge.SportType.getByOrdinal(binding.spCategory.selectedItemPosition)?: Challenge.SportType.WALKING,
-            duration = binding.editTextDuration.text.toString().toInt(),
+            duration = Challenge.SportDuration.getByOrdinal(binding.spChallengeDuration.selectedItemPosition)?: Challenge.SportDuration.DAILY,
             startDate = dateinLong
         )
         challengeViewModel.addChallenge(newChallenge)

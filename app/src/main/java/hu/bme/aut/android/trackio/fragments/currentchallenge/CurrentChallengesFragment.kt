@@ -39,18 +39,10 @@ class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickList
 
         mChallangeViewModel = ViewModelProvider(this)[ChallengeViewModel::class.java]
 
-        mChallangeViewModel.data()
         mChallangeViewModel.readAllData.observe(viewLifecycleOwner) { challenge ->
             adapter.setData(challenge)
         }
 
-        /*mChallangeViewModel.responseData.observe(viewLifecycleOwner) {
-            if (it.isSuccessful) {
-                Log.d("talan", it.body().toString())
-            } else {
-                Log.d("talan", "nemnyert")
-            }
-        }*/
         return binding.root
     }
 
@@ -60,6 +52,7 @@ class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickList
             duration = 700
             interpolator = AccelerateDecelerateInterpolator()
         }
+
 
         binding.floatingActionButton.setOnClickListener {
             binding.floatingActionButton.isVisible = false

@@ -12,11 +12,11 @@
         style="@style/topText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
         android:layout_marginTop="70dp"
         android:minHeight="48dp"
         android:text="Adding new challenge"
         android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,13 +66,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDistance" />
 
-    <EditText
-        android:id="@+id/editTextDuration"
+    <Spinner
+        android:id="@+id/spChallengeDuration"
         style="@style/inputForm"
         android:layout_width="320dp"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:inputType="number"
         android:textSize="@dimen/font_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +87,7 @@
 
         android:text="Type"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDuration" />
+        app:layout_constraintTop_toBottomOf="@+id/spChallengeDuration" />
 
     <Spinner
         android:id="@+id/spCategory"

@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.trackio.R
 import hu.bme.aut.android.trackio.databinding.FragmentLoginBinding
+import hu.bme.aut.android.trackio.model.SharedPrefConfig
+import hu.bme.aut.android.trackio.network.data.Login
 import hu.bme.aut.android.trackio.viewmodell.LoginFragmentViewModel
 
 class LoginFragment : Fragment() {
@@ -28,14 +30,29 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel = ViewModelProvider(this)[LoginFragmentViewModel::class.java]
-
-        binding.btnLoginToHome.setOnClickListener {
-            if(viewModel.loginUser(binding.emailedittext.text.toString(),binding.passwordtext.text.toString())){
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            }
-            else{
-                Toast.makeText(context,"Wrong password or email",Toast.LENGTH_SHORT).show()
+        var login = SharedPrefConfig.getBoolean("pref_loggedin",false)
+        if(login){
+            viewModel.login(Login(SharedPrefConfig.getString("pref_email","nomail"),SharedPrefConfig.getString("pref_password","password"))).observe(viewLifecycleOwner){
+                    succesfulLogin ->
+                if (succesfulLogin){
+                    SharedPrefConfig.put("pref_loggedin",true)
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                }
             }
         }
+        else{
+            binding.btnLoginToHome.setOnClickListener {
+                viewModel.login(Login(binding.emailedittext.text.toString(),binding.passwordtext.text.toString())).observe(viewLifecycleOwner){
+                        succesfulLogin ->
+                    if (succesfulLogin){
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    }
+                    else{
+                        Toast.makeText(context,"Wrong password or email",Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+
     }
 }
