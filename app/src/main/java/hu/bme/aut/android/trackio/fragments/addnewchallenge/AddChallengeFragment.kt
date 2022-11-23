@@ -1,6 +1,7 @@
 package hu.bme.aut.android.trackio.fragments.addnewchallenge
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -107,7 +108,8 @@ class AddChallengeFragment : Fragment() {
             duration = Challenge.SportDuration.getByOrdinal(binding.spChallengeDuration.selectedItemPosition)?: Challenge.SportDuration.DAILY,
             startDate = dateinLong
         )
-        challengeViewModel.addChallenge(newChallenge)
+        Log.d("talan",newChallenge.toString())
+        challengeViewModel.postChallenge(newChallenge)
         Toast.makeText(context,"Beadtamtesa",Toast.LENGTH_SHORT).show()
     }
 }

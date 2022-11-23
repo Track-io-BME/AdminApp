@@ -7,7 +7,7 @@ import hu.bme.aut.android.trackio.model.Challenge
 @Dao
 interface ChallengeDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addChallenge(challenge: Challenge)
 
     @Query("SELECT * FROM challanges_table ORDER BY id ASC")

@@ -22,12 +22,12 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
     val readAllData: LiveData<List<Challenge>>
     private val challengeDbRepository: ChallengeDbRepository
     private val challengeNetworkRepository: ChallengeNetworkRepository
+    private var autToken = SharedPrefConfig.getString("pref_token", "no token")
     init {
         val challengeDao = ChallengeDatabase.getDatabase(application).challengeDao()
         challengeDbRepository = ChallengeDbRepository(challengeDao)
         challengeNetworkRepository = ChallengeNetworkRepository()
-        var token = SharedPrefConfig.getString("pref_token","no token")
-        getChallengesFromServer(token)
+        getChallengesFromServer(autToken)
         readAllData = challengeDbRepository.readAllData
     }
 
@@ -43,43 +43,41 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-
-
-   /* fun onedata() {
-        repository.getChallengeFromServer()?.enqueue(object : Callback<Challenge?> {
-
-            override fun onResponse(
-                call: Call<Challenge?>,
-                response: Response<Challenge?>
-            ) {
-                Log.d("talan", "onResponse: " + response.code())
-                if (response.isSuccessful) {
-                    Log.d("talan", response.body().toString())
+    fun deletenetworkChallenge(challenge: Challenge){
+        challengeNetworkRepository.deleteChallenge(autToken,challenge)?.enqueue(object : Callback<Challenge?> {
+            override fun onResponse(call: Call<Challenge?>, response: Response<Challenge?>) {
+                if (response.isSuccessful){
                     val data = response.body()
-                    if (data != null) {
-                        addChallenge(data)
-                        Log.d("talan", data.id.toString())
-                        Log.d("talan", data.distance.toString())
-                        Log.d("talan", data.startDate.toString())
-                        Log.d("talan", data.duration.toString())
-                    } else {
-                        Log.d("talan", "kurvaelet")
+                    if(data!=null){
+                        deleteChallenge(data)
                     }
                 }
             }
 
-            override fun onFailure(
-                call: Call<Challenge?>,
-                throwable: Throwable
-            ) {
-                throwable.printStackTrace()
+            override fun onFailure(call: Call<Challenge?>, t: Throwable) {
+                t.printStackTrace()
             }
+
         })
-    }*/
+    }
+    fun postChallenge(challenge: Challenge){
+        challengeNetworkRepository.postChallenge(autToken,challenge)?.enqueue(object : Callback<Challenge?> {
+            override fun onResponse(call: Call<Challenge?>, response: Response<Challenge?>) {
+               if (response.isSuccessful){
+                   val data = response.body()
+                   Log.d("talan",data.toString())
+                   if(data!=null){
+                       addChallenge(data)
+                   }
+               }
+            }
 
+            override fun onFailure(call: Call<Challenge?>, t: Throwable) {
+                t.printStackTrace()
+            }
 
-
-
+        })
+    }
 
     fun getChallengesFromServer(string: String) {
         challengeNetworkRepository.getAllChallengesFromServer(string)
@@ -88,8 +86,6 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
                     call: Call<List<Challenge?>?>,
                     response: Response<List<Challenge?>?>
                 ) {
-                    Log.d("talan", "onResponse: " + response.code())
-                    Log.d("talan", response.body().toString())
                     if (response.isSuccessful) {
                         val data = response.body()
                         if (data != null) {

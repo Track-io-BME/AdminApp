@@ -1,6 +1,7 @@
 package hu.bme.aut.android.trackio.viewmodell
 
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +28,8 @@ class LoginFragmentViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         autToken = response.body()!!
-                        SharedPrefConfig.put("pref_token",autToken.token)
+                        Log.d("talan",response.body().toString())
+                        SharedPrefConfig.put("pref_token","Bearer "+autToken.token)
                         SharedPrefConfig.put("pref_password",login.password)
                         SharedPrefConfig.put("pref_email",autToken.email)
                         SharedPrefConfig.put("pref_loggedin",true)

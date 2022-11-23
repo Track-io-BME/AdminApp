@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnHomeToLogin.setOnClickListener {
+        binding.btnLogOut.setOnClickListener {
             SharedPrefConfig.put("pref_loggedin",false)
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
         }

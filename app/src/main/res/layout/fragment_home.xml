@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/btnHomeToLogin"
+        android:id="@+id/btnLogOut"
         style="@style/wideButton"
         android:layout_width="333dp"
         android:layout_height="wrap_content"

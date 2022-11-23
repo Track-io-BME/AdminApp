@@ -5,9 +5,6 @@ import android.content.SharedPreferences
 
 object SharedPrefConfig {
     private const val PREFERENCE_NAME  = "hu.bme.aut.android.trackio"
-    const val pref_token  = "token"
-    const val pref_email  = "email"
-    const val pref_expiry_date= "expiry_date"
 
     private lateinit var mPreferences: SharedPreferences
     private var mEditor: SharedPreferences.Editor? = null
