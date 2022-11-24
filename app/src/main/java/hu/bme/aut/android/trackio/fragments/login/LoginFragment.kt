@@ -57,32 +57,33 @@ class LoginFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        } else {
-            binding.btnLoginToHome.setOnClickListener {
-                if (InternetConnectivityChecker.isOnline()) {
-                    viewModel.login(
-                        Login(
-                            binding.emailedittext.text.toString(),
-                            binding.passwordtext.text.toString()
-                        )
-                    ).observe(viewLifecycleOwner) { succesfulLogin ->
-                        if (succesfulLogin) {
-                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                        } else {
-                            Toast.makeText(context, "Wrong password or email", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-                    }
-                } else {
-                    Toast.makeText(
-                        context,
-                        "No internet, please restart the app with internet connection",
-                        Toast.LENGTH_SHORT
-                    ).show()
+        }
 
+        binding.btnLoginToHome.setOnClickListener {
+            if (InternetConnectivityChecker.isOnline()) {
+                viewModel.login(
+                    Login(
+                        binding.emailedittext.text.toString(),
+                        binding.passwordtext.text.toString()
+                    )
+                ).observe(viewLifecycleOwner) { succesfulLogin ->
+                    if (succesfulLogin) {
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    } else {
+                        Toast.makeText(context, "Wrong password or email", Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
+            } else {
+                Toast.makeText(
+                    context,
+                    "No internet",
+                    Toast.LENGTH_SHORT
+                ).show()
+
             }
         }
+
     }
 
 }
