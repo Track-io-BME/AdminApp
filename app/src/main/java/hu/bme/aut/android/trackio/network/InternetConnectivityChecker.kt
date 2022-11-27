@@ -2,7 +2,6 @@ package hu.bme.aut.android.trackio.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.ConnectivityManager.TYPE_WIFI
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log

@@ -44,6 +44,7 @@ class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickList
     }
 
     override fun onItemRemoved(item: Challenge) {
+        mChallangeViewModel.deleteChallenge(item)
         mChallangeViewModel.deletenetworkChallenge(item)
     }
 

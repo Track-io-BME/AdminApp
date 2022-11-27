@@ -1,6 +1,5 @@
 package hu.bme.aut.android.trackio.network.api
 
-import com.squareup.moshi.Moshi
 import hu.bme.aut.android.trackio.network.utils.Constant.Companion.SERVICE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

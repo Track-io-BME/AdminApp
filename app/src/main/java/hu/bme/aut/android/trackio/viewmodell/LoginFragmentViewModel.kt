@@ -1,6 +1,5 @@
 package hu.bme.aut.android.trackio.viewmodell
 
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import hu.bme.aut.android.trackio.model.SharedPrefConfig
 import hu.bme.aut.android.trackio.network.data.AutToken
 import hu.bme.aut.android.trackio.network.data.Login
-import hu.bme.aut.android.trackio.repository.ChallengeDbRepository
 import hu.bme.aut.android.trackio.repository.ChallengeNetworkRepository
 import retrofit2.Call
 import retrofit2.Callback

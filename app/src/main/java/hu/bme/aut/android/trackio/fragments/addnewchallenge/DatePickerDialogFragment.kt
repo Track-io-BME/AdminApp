@@ -2,7 +2,6 @@ package hu.bme.aut.android.trackio.fragments.addnewchallenge
 
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
@@ -19,7 +18,7 @@ class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetLis
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         val dp = DatePickerDialog(requireContext(), this, year, month, day)
-        dp.datePicker.minDate = c.timeInMillis + 86400000 //1nap millisecben
+      //  dp.datePicker.minDate = c.timeInMillis + 86400000 //1nap millisecben
         return dp
     }
 
