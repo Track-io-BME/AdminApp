@@ -43,6 +43,11 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+    fun deleteAllChallenge(){
+        viewModelScope.launch(Dispatchers.IO) {
+            challengeDbRepository.deleteAllChallenge()
+        }
+    }
     fun deletenetworkChallenge(challenge: Challenge){
         challengeNetworkRepository.deleteChallenge(autToken,challenge)?.enqueue(object : Callback<Challenge?> {
             override fun onResponse(call: Call<Challenge?>, response: Response<Challenge?>) {
@@ -87,6 +92,7 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
                     response: Response<List<Challenge?>?>
                 ) {
                     if (response.isSuccessful) {
+                        deleteAllChallenge()
                         val data = response.body()
                         if (data != null) {
                             for (item in data) {

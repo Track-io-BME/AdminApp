@@ -79,6 +79,8 @@ class LoginFragment : Fragment() {
                     "No internet",
                     Toast.LENGTH_SHORT
                 ).show()
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
 
             }
         }

@@ -15,4 +15,7 @@ interface ChallengeDao {
 
     @Delete
     suspend fun deleteChallenge(challenge: Challenge)
+
+    @Query("DELETE FROM challanges_table")
+    fun deleteAllChallenges()
 }

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.trackio.viewmodell.ChallengeViewModel
 import hu.bme.aut.android.trackio.databinding.FragmentCurrentChallengesBinding
 import hu.bme.aut.android.trackio.model.Challenge
+import hu.bme.aut.android.trackio.model.SharedPrefConfig
+import hu.bme.aut.android.trackio.network.InternetConnectivityChecker
 
 class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickListener {
     private lateinit var binding: FragmentCurrentChallengesBinding
@@ -48,5 +50,12 @@ class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickList
         mChallangeViewModel.deletenetworkChallenge(item)
     }
 
+    override fun onStart() {
+        super.onStart()
+        if(InternetConnectivityChecker.isOnline()){
+            mChallangeViewModel.getChallengesFromServer( SharedPrefConfig.getString("pref_token", "no token")
+            )
+        }
 
+    }
 }

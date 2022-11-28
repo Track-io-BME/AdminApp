@@ -16,6 +16,10 @@ class ChallengeDbRepository(private val challengeDao : ChallengeDao) {
         challengeDao.deleteChallenge(challenge)
     }
 
+    fun deleteAllChallenge(){
+        challengeDao.deleteAllChallenges()
+    }
+
 
 
 }
