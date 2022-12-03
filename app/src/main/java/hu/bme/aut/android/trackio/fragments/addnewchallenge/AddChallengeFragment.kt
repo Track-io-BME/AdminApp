@@ -108,9 +108,8 @@ class AddChallengeFragment : Fragment() {
             duration = Challenge.SportDuration.getByOrdinal(binding.spChallengeDuration.selectedItemPosition)?: Challenge.SportDuration.DAILY,
             startDate = dateinLong
         )
-        Log.d("talan",newChallenge.toString())
         challengeViewModel.postChallenge(newChallenge)
-        Toast.makeText(context,"Beadtamtesa",Toast.LENGTH_SHORT).show()
+        Toast.makeText(context,"Challenge added",Toast.LENGTH_SHORT).show()
     }
 }
 

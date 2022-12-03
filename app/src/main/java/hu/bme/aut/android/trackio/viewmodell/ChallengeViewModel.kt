@@ -70,7 +70,6 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
             override fun onResponse(call: Call<Challenge?>, response: Response<Challenge?>) {
                if (response.isSuccessful){
                    val data = response.body()
-                   Log.d("talan",data.toString())
                    if(data!=null){
                        addChallenge(data)
                    }
@@ -100,8 +99,6 @@ class ChallengeViewModel(application: Application) : AndroidViewModel(applicatio
                                     addChallenge(item)
                                 }
                             }
-                        } else {
-                            Log.d("talan", "lol")
                         }
                     }
                 }

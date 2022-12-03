@@ -26,7 +26,6 @@ class LoginFragmentViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     if (response.body() != null) {
                         autToken = response.body()!!
-                        Log.d("talan",response.body().toString())
                         SharedPrefConfig.put("pref_token","Bearer "+autToken.token)
                         SharedPrefConfig.put("pref_password",login.password)
                         SharedPrefConfig.put("pref_email",autToken.email)
