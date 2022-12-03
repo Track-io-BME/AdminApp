@@ -20,6 +20,20 @@
         <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_workout_history.xml" value="0.27447916666666666" />
         <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_workout_map.xml" value="0.27447916666666666" />
         <entry key="..\:/MINDEN/BME/5_felev/temalab/Track.io/App/app/src/main/res/layout/fragment_workout_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/drawable-v24/blue_background.xml" value="0.214" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/drawable/addnewchallangebackground.xml" value="0.214" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/drawable/circle.xml" value="0.214" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/drawable/gradient_background.xml" value="0.2455" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/drawable/ic_add.xml" value="0.214" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/activity_main.xml" value="0.19" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/challange_rowitem.xml" value="0.3442622950819672" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/customrowlayout.xml" value="0.536" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/fragment_add_challenge.xml" value="0.25" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/fragment_current_challenges.xml" value="0.27292768959435626" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/fragment_home.xml" value="0.14788732394366197" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/layout/fragment_login.xml" value="0.115625" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2455" />
+        <entry key="..\:/Programozas/Temalabor/AdminApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2455" />
         <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable-v24/blue_background.xml" value="0.253" />
         <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable-v24/white_background.xml" value="0.2595" />
         <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/drawable/addnewchallangebackground.xml" value="0.1115" />
@@ -32,6 +46,7 @@
         <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_date_picker_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Programozas/Temalabor/Track.io/AdminApp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/Galuska Zoltán/.gradle/caches/transforms-3/d0bda8f0b47b7334f3c5598e4f9f9a10/transformed/appcompat-1.5.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.31040564373897706" />
       </map>
     </option>
   </component>

@@ -2,6 +2,23 @@
     <string name="app_name">Track.io Admin App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adding_new_challenge">Adding new challenge</string>
+    <string name="choose_the_distance_the_duration_and_the_type">Choose the distance, the duration and the type.</string>
+    <string name="distance_in_km">Distance (in km)</string>
+    <string name="duration_in_days">Duration (in days)</string>
+    <string name="type">Type</string>
+    <string name="start_date">Start date</string>
+    <string name="add_date">Add date</string>
+    <string name="end_date">End date</string>
+    <string name="add">Add</string>
+    <string name="current_challenges">Current challenges</string>
+    <string name="admin_page">Admin page</string>
+    <string name="current_challenge"><![CDATA[Current challenge>]]></string>
+    <string name="add_new_challenge">Add new challenge</string>
+    <string name="log_out">Log out</string>
+    <string name="log_in">Log in</string>
+    <string name="log_in_To_home">Log in</string>
+    <string name="left">Left</string>
 
     <string-array name="sports">
         <item>Walking</item>

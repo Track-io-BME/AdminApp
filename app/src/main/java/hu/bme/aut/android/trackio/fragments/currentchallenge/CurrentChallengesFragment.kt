@@ -8,15 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.trackio.viewmodell.ChallengeViewModel
-import hu.bme.aut.android.trackio.databinding.FragmentCurrentChallengesBinding
 import hu.bme.aut.android.trackio.model.Challenge
 import hu.bme.aut.android.trackio.model.SharedPrefConfig
 import hu.bme.aut.android.trackio.network.InternetConnectivityChecker
+import hu.bme.aut.android.trackio.databinding.FragmentCurrentChallengesBinding
 
 class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickListener {
     private lateinit var binding: FragmentCurrentChallengesBinding
     private lateinit var mChallangeViewModel: ChallengeViewModel
-
     private lateinit var adapter: ListAdapter
 
     override fun onCreateView(
@@ -46,14 +45,18 @@ class CurrentChallengesFragment : Fragment(), ListAdapter.ChallengeItemClickList
     }
 
     override fun onItemRemoved(item: Challenge) {
-        mChallangeViewModel.deleteChallenge(item)
-        mChallangeViewModel.deletenetworkChallenge(item)
+        if (InternetConnectivityChecker.isOnline()) {
+            mChallangeViewModel.deleteChallenge(item)
+            mChallangeViewModel.deletenetworkChallenge(item)
+
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        if(InternetConnectivityChecker.isOnline()){
-            mChallangeViewModel.getChallengesFromServer( SharedPrefConfig.getString("pref_token", "no token")
+        if (InternetConnectivityChecker.isOnline()) {
+            mChallangeViewModel.getChallengesFromServer(
+                SharedPrefConfig.getString("pref_token", "no token")
             )
         }
 
