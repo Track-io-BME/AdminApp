@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.trackio.R
 import hu.bme.aut.android.trackio.model.Challenge
 import hu.bme.aut.android.trackio.databinding.ChallangeRowitemBinding
+import hu.bme.aut.android.trackio.network.InternetConnectivityChecker
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -40,8 +41,10 @@ class ListAdapter(private val listeners: ChallengeItemClickListener):
         val daysleft = TimeUnit.MILLISECONDS.toDays(leftInmillies).toString()+" days"
         holder.binding.rowdaysleft.text= daysleft
         holder.binding.removebutton.setOnClickListener{
-            deleteData(currentItem)
-            listeners.onItemRemoved(currentItem)
+            if(InternetConnectivityChecker.isOnline()){
+                deleteData(currentItem)
+                listeners.onItemRemoved(currentItem)
+            }
         }
 
     }
