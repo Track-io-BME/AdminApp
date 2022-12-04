@@ -9,20 +9,21 @@ import androidx.navigation.fragment.findNavController
 import java.io.Serializable
 import java.util.*
 
-class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListener{
+class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
-        val dp =  DatePickerDialog(requireContext(), this, year, month, day)
-        dp.datePicker.minDate=c.timeInMillis+86400000 //1nap millisecben
+        val dp = DatePickerDialog(requireContext(), this, year, month, day)
+      //  dp.datePicker.minDate = c.timeInMillis + 86400000 //1nap millisecben
         return dp
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         val result = DatePickerResult(year, month, dayOfMonth)
+
         findNavController()
             .previousBackStackEntry
             ?.savedStateHandle

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.trackio.R
 import hu.bme.aut.android.trackio.databinding.FragmentHomeBinding
+import hu.bme.aut.android.trackio.model.SharedPrefConfig
 
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
@@ -24,7 +25,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnHomeToLogin.setOnClickListener {
+        binding.btnLogOut.setOnClickListener {
+            SharedPrefConfig.put("pref_loggedin",false)
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
         }
         binding.btnHomeToAdd.setOnClickListener {

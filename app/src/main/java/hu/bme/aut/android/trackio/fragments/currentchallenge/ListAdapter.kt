@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.trackio.R
 import hu.bme.aut.android.trackio.model.Challenge
 import hu.bme.aut.android.trackio.databinding.ChallangeRowitemBinding
+import hu.bme.aut.android.trackio.network.InternetConnectivityChecker
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -34,14 +35,16 @@ class ListAdapter(private val listeners: ChallengeItemClickListener):
         holder.binding.sporticon.setImageResource(getImageResource(currentItem.sportType))
         holder.binding.typeofsport.text=getSportType(currentItem.sportType)
         holder.binding.rowdistance.text= currentItem.distance.toString().plus(" km")
-        holder.binding.rowduration.text= currentItem.duration.toString().plus(" days")
-        holder.binding.rowstartdate.text= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(currentItem.startdate)
-        val leftInmillies =Calendar.getInstance().getTime().time-currentItem.startdate;
+        holder.binding.rowduration.text= getSportDuration(currentItem.duration)
+        holder.binding.rowstartdate.text= SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(currentItem.startDate)
+        val leftInmillies =Calendar.getInstance().getTime().time-currentItem.startDate;
         val daysleft = TimeUnit.MILLISECONDS.toDays(leftInmillies).toString()+" days"
         holder.binding.rowdaysleft.text= daysleft
         holder.binding.removebutton.setOnClickListener{
-            deleteData(currentItem)
-            listeners.onItemRemoved(currentItem)
+            if(InternetConnectivityChecker.isOnline()){
+                deleteData(currentItem)
+                listeners.onItemRemoved(currentItem)
+            }
         }
 
     }
@@ -64,6 +67,14 @@ class ListAdapter(private val listeners: ChallengeItemClickListener):
             Challenge.SportType.WALKING -> R.drawable.ic_walking
             Challenge.SportType.RUNNING -> R.drawable.ic_running
             Challenge.SportType.CYCLING -> R.drawable.ic_cycling
+        }
+    }
+
+    private fun getSportDuration(duration : Challenge.SportDuration) : String {
+        return when(duration)
+        {
+            Challenge.SportDuration.DAILY -> "Daily"
+            Challenge.SportDuration.WEEKLY -> "Weekly"
         }
     }
 
